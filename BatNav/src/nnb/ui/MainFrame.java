@@ -419,7 +419,7 @@ public class MainFrame extends JFrame {
                 enemyGridTButton[i % width][i / width].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
-                        selectCell(j % w, j / h, t);
+                        selectCell(j % w, j / w, t);
                     }
                 });
                 p.add(enemyGridTButton[i % width][i / width]);
