@@ -116,7 +116,7 @@ public class FleetManager {
     public boolean isFleetDefeated() {
         for (Point[] ship : shipList) {
             for (Point p : ship) {
-                if (p.x != -1 && p.y != -1)
+                if (p.equals(new Point(-1, -1)))
                     return false;
             }
         }
