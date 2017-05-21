@@ -16,7 +16,7 @@ public class FleetManager {
         if (shipLength == -1)
             return 2;
 
-        // Test si bateau deja posÃ©
+        // Test si bateau deja posé
         for (Point[] ship : shipList) {
             if (ship.length == shipLength)
                 return 2;
@@ -80,7 +80,7 @@ public class FleetManager {
     }
 
     public int checkCell(Point coords) {
-        // vÃ©rifier coordonnÃ©es en fonction de la grille des bateaux
+        // vérifier coordonnées en fonction de la grille des bateaux
 
         for (Point[] ship : shipList) {
             for (int i = 0; i < ship.length; i++) {
@@ -100,7 +100,7 @@ public class FleetManager {
                 }
             }
         }
-        // 0 = ratÃ©, 1 = touchÃ©, 2 = coulÃ©
+        // 0 = raté, 1 = touché, 2 = coulé
         miss.add(coords);
         return 0;
     }
