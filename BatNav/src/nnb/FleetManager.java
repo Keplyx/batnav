@@ -50,7 +50,7 @@ public class FleetManager {
         // Ajoute bateau dans la liste
         shipList.add(shipCoords);
 
-        System.out.println("Bateau placÃ© | Taille : " + shipLength);
+        System.out.println("Bateau placé | Taille : " + shipLength);
         return 0;
     }
 
