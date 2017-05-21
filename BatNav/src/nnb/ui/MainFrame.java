@@ -198,13 +198,13 @@ public class MainFrame extends JFrame {
 
     public void showServerCreationError() {
         JOptionPane.showMessageDialog(this,
-                "Impossible de créer le serveur\nVeuillez vérifier que vous possédez les autorisations necessaires.",
+                "Impossible de crÃ©er le serveur\nVeuillez vÃ©rifier que vous possÃ©dez les autorisations necessaires.",
                 "Erreur", JOptionPane.WARNING_MESSAGE);
     }
 
     public void showServerConnectionError() {
         JOptionPane.showMessageDialog(this,
-                "Impossible de joindre le serveur\nVeuillez vérifier que l'adresse entrée est correcte.", "Erreur",
+                "Impossible de joindre le serveur\nVeuillez vÃ©rifier que l'adresse entrÃ©e est correcte.", "Erreur",
                 JOptionPane.WARNING_MESSAGE);
     }
 
@@ -217,7 +217,7 @@ public class MainFrame extends JFrame {
         firstplayerLabel.setHorizontalAlignment(JLabel.CENTER);
         firstRoundPanel.add(firstplayerLabel);
 
-        firstroundLabel = new JLabel("Round 0: Préparation!");
+        firstroundLabel = new JLabel("Round 0: PrÃ©paration!");
         firstroundLabel.setFont(new Font("Sans-Serif", Font.BOLD, 20));
         firstroundLabel.setBounds(300, 0, 500, 50);
         firstroundLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -298,7 +298,7 @@ public class MainFrame extends JFrame {
         undoButton.setActionCommand("undo_ship");
         firstRoundPanel.add(undoButton);
 
-        endfirstRoundButton = new JButton("Terminé");
+        endfirstRoundButton = new JButton("TerminÃ©");
         endfirstRoundButton.setBounds(950, 625, 100, 50);
         endfirstRoundButton.addActionListener(controller);
         endfirstRoundButton.setActionCommand("confrim_fleet");
@@ -318,13 +318,13 @@ public class MainFrame extends JFrame {
     }
 
     public void showPlacementError(String error) {
-        JOptionPane.showMessageDialog(this, "Impossible de placer le bateau à  ces coordonnées\n" + error, "Erreur",
+        JOptionPane.showMessageDialog(this, "Impossible de placer le bateau Ã Â  ces coordonnÃ©es\n" + error, "Erreur",
                 JOptionPane.WARNING_MESSAGE);
     }
 
     public void confirmFleetMessage() {
         int answer = JOptionPane.showConfirmDialog(this,
-                "Êtes-vous sûr de vouloir garder cette configuration?\nVous ne pourrez plus la modifier",
+                "ÃŠtes-vous sÃ»r de vouloir garder cette configuration?\nVous ne pourrez plus la modifier",
                 "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (answer == JOptionPane.YES_OPTION)
             controller.endRound();
@@ -332,7 +332,7 @@ public class MainFrame extends JFrame {
 
     public void showFleetError() {
         JOptionPane.showMessageDialog(this,
-                "Vous n'avez pas placé tous vos bateux\nVeuillez coninuer une fois les 5 bateaux positionnés sur la grille",
+                "Vous n'avez pas placÃ© tous vos bateux\nVeuillez coninuer une fois les 5 bateaux positionnÃ©s sur la grille",
                 "Confirmation", JOptionPane.WARNING_MESSAGE);
     }
 
@@ -396,34 +396,33 @@ public class MainFrame extends JFrame {
         JPanel p = new JPanel(new GridLayout(width, height));
 
         for (int i = 0; i < height * width; i++) {
-            final int h = height;
             final int w = width;
             final int j = i;
             final int t = type;
             if (type == 0) {
-                firstRoundGridTButton[i % width][i / height] = new JToggleButton(backgroundImage);
-                firstRoundGridTButton[i % width][i / height].setPreferredSize(new Dimension(GRID_SIZE, GRID_SIZE));
-                firstRoundGridTButton[i % width][i / height].addActionListener(new ActionListener() {
+                firstRoundGridTButton[i % width][i / width] = new JToggleButton(backgroundImage);
+                firstRoundGridTButton[i % width][i / width].setPreferredSize(new Dimension(GRID_SIZE, GRID_SIZE));
+                firstRoundGridTButton[i % width][i / width].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
-                        selectCell(j % w, j / h, t);
+                        selectCell(j % w, j / w, t);
                     }
                 });
-                p.add(firstRoundGridTButton[i % width][i / height]);
+                p.add(firstRoundGridTButton[i % width][i / width]);
             } else if (type == 1) {
-                ownGridTButton[i % width][i / height] = new JToggleButton(backgroundImage);
-                ownGridTButton[i % width][i / height].setPreferredSize(new Dimension(GRID_SIZE, GRID_SIZE));
-                p.add(ownGridTButton[i % width][i / height]);
+                ownGridTButton[i % width][i / width] = new JToggleButton(backgroundImage);
+                ownGridTButton[i % width][i / width].setPreferredSize(new Dimension(GRID_SIZE, GRID_SIZE));
+                p.add(ownGridTButton[i % width][i / width]);
             } else if (type == 2) {
-                enemyGridTButton[i % width][i / height] = new JToggleButton(backgroundImage);
-                enemyGridTButton[i % width][i / height].setPreferredSize(new Dimension(GRID_SIZE, GRID_SIZE));
-                enemyGridTButton[i % width][i / height].addActionListener(new ActionListener() {
+                enemyGridTButton[i % width][i / width] = new JToggleButton(backgroundImage);
+                enemyGridTButton[i % width][i / width].setPreferredSize(new Dimension(GRID_SIZE, GRID_SIZE));
+                enemyGridTButton[i % width][i / width].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         selectCell(j % w, j / h, t);
                     }
                 });
-                p.add(enemyGridTButton[i % width][i / height]);
+                p.add(enemyGridTButton[i % width][i / width]);
             }
         }
         p.setBounds(posX, posY, GRID_SIZE * width, GRID_SIZE * height);
@@ -454,7 +453,7 @@ public class MainFrame extends JFrame {
     }
 
     public void showRoundRecap(String message) {
-        JOptionPane.showConfirmDialog(this, message + "\n\nCliquez sur OK pour terminer le tour", "Récapitulatif",
+        JOptionPane.showConfirmDialog(this, message + "\n\nCliquez sur OK pour terminer le tour", "RÃ©capitulatif",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
         controller.endRound();
     }
@@ -484,20 +483,20 @@ public class MainFrame extends JFrame {
     private void createEndGameUI() {
         endGamePanel = createPanel(endGamePanel);
 
-        endTitleLabel = new JLabel("Partie terminée");
+        endTitleLabel = new JLabel("Partie terminÃ©e");
         endTitleLabel.setFont(new Font("Sans-Serif", Font.BOLD, 50));
         endTitleLabel.setForeground(Color.BLUE);
         endTitleLabel.setBounds(300, 100, 500, 100);
         endTitleLabel.setHorizontalAlignment(JLabel.CENTER);
         endGamePanel.add(endTitleLabel);
 
-        descriptionLabel = new JLabel("Le joueur XXX à  éliminé la flotte de XXX");
+        descriptionLabel = new JLabel("Le joueur XXX Ã Â  Ã©liminÃ© la flotte de XXX");
         descriptionLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 30));
         descriptionLabel.setBounds(200, 200, 700, 300);
         descriptionLabel.setHorizontalAlignment(JLabel.CENTER);
         endGamePanel.add(descriptionLabel);
 
-        creditsLabel = new JLabel("Bien joué!");
+        creditsLabel = new JLabel("Bien jouÃ©!");
         creditsLabel.setFont(new Font("Sans-Serif", Font.PLAIN, 20));
         creditsLabel.setBounds(300, 500, 500, 50);
         creditsLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -554,7 +553,7 @@ public class MainFrame extends JFrame {
     }
 
     public void showFirstRoundUI(String playerName) {
-        setTitle(gameName + " | Préparation");
+        setTitle(gameName + " | PrÃ©paration");
         firstplayerLabel.setText(playerName);
         resetShipButtons();
         resetShipsButtons();
@@ -656,7 +655,7 @@ public class MainFrame extends JFrame {
             List<Point> missE, List<Point[]> shipList) {
         setTitle(gameName + " | Round - " + playerName);
         playerLabel.setText(playerName);
-        roundLabel.setText("Round " + round + ": Détruisez la flotte adverse!");
+        roundLabel.setText("Round " + round + ": DÃ©truisez la flotte adverse!");
         ownMissLabel.setText(missO.size() + "");
         ownHitLabel.setText(hitO.size() + "");
         enemyMissLabel.setText(missE.size() + "");
@@ -680,9 +679,9 @@ public class MainFrame extends JFrame {
     public void showEndGameUI(String winner, String loser, boolean draw) {
         setTitle(gameName + " | Fin de partie");
         if (!draw)
-            descriptionLabel.setText(winner + " a  éliminé la flotte de " + loser);
+            descriptionLabel.setText(winner + " aÂ  Ã©liminÃ© la flotte de " + loser);
         else
-            descriptionLabel.setText("Egalité! Pas de vainqueur.");
+            descriptionLabel.setText("EgalitÃ©! Pas de vainqueur.");
         cl.show(cards, "endGame");
     }
 
@@ -696,13 +695,13 @@ public class MainFrame extends JFrame {
 
     public void showCredits() {
         JOptionPane.showMessageDialog(this,
-                "Bataille navale\nProjet ISN 2016-2017\nCréé par Arnaud, Guilhem et Antoine", "Credits",
+                "Bataille navale\nProjet ISN 2016-2017\nCrÃ©Ã© par Arnaud, Guilhem et Antoine", "Credits",
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void newGameConfirm() {
         int answer = JOptionPane.showConfirmDialog(this,
-                "Voulez vous vraiment commencer une nouvelle partie?\nTout progrès sera perdu", "Nouvelle partie?",
+                "Voulez vous vraiment commencer une nouvelle partie?\nTout progrÃ¨s sera perdu", "Nouvelle partie?",
                 JOptionPane.YES_NO_OPTION);
         if (answer == JOptionPane.YES_OPTION)
             controller.restart();
