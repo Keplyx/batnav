@@ -16,7 +16,7 @@ public class FleetManager {
         if (shipLength == -1)
             return 2;
 
-        // Test si bateau deja posé
+        // Test si bateau deja posÃ©
         for (Point[] ship : shipList) {
             if (ship.length == shipLength)
                 return 2;
@@ -27,8 +27,8 @@ public class FleetManager {
             shipCoords[i] = new Point();
         }
 
-        // Cr�er les coords
-        for (int i = 0; i < shipLength; i++) {
+        // Créer les coords
+        for (int i = 0; i < shipCoords.length; i++) {
             if (isHorizontal)
                 shipCoords[i].move(coords.x + i, coords.y);
             else
@@ -50,7 +50,7 @@ public class FleetManager {
         // Ajoute bateau dans la liste
         shipList.add(shipCoords);
 
-        System.out.println("Bateau placé | Taille : " + shipLength);
+        System.out.println("Bateau placÃ© | Taille : " + shipLength);
         return 0;
     }
 
@@ -80,7 +80,7 @@ public class FleetManager {
     }
 
     public int checkCell(Point coords) {
-        // vérifier coordonnées en fonction de la grille des bateaux
+        // vÃ©rifier coordonnÃ©es en fonction de la grille des bateaux
 
         for (Point[] ship : shipList) {
             for (int i = 0; i < ship.length; i++) {
@@ -100,7 +100,7 @@ public class FleetManager {
                 }
             }
         }
-        // 0 = raté, 1 = touché, 2 = coulé
+        // 0 = ratÃ©, 1 = touchÃ©, 2 = coulÃ©
         miss.add(coords);
         return 0;
     }
