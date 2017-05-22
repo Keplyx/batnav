@@ -31,7 +31,7 @@ public class PlayerManager {
 
     public String getEnemyPlayerName() {
         if (actualPlayer == 0 || actualPlayer == 2)
-            return names[0];
+            return names[1];
         else if (actualPlayer == 1 && names[2] == null)
             return names[0];
         else
